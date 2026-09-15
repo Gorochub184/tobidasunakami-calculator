@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <title>とびだすなかみ計算ツール</title>
+</head>
+
+<body>
+
+    <h1>とびだすなかみ計算ツール</h1>
+
+    <!-- 上部メニュー -->
+    <div class="menu">
+        <button id="doryokutiButton">HP努力値予想</button>
+        <button id="hpButton">残りHP計算</button>
+        <button id="kaihukuryouButton">ちからをすいとる<br>回復量計算</button>
+    </div>
+
+    <hr>
+
+    <!-- 努力値計算 -->
+    <div class="page" id="doryokutiPage">
+
+        <h2>HP努力値予想</h2>
+
+        <div class="font-row">
+            <label>相手のポケモン</label>
+            <div class="pokemon-search">
+                <input type="text" id="pokemonName">
+                <div id="pokemonSuggestions"></div>
+            </div>
+        </div>
+
+        <div class="font-row">
+            <label>ダメージ前相手のHP割合</label>
+            <div class="percent-input">
+                <input type="text" id="beforeHP" placeholder="0~100">
+                <span>%</span>
+            </div>
+        </div>    
+
+        <div class="font-row">
+            <label>ダメージ後相手のHP割合</label>
+            <div class="percent-input">
+                <input type="text" id="afterHP" placeholder="0~100">
+                <span>%</span>
+            </div>
+        </div>
+
+        <div class="font-row">
+            <label>とびだすなかみダメージ量</label>
+            <input type="text" id="nokoriHP">
+        </div>
+
+        <button class="calculate-button" id="doryokutiCalculate">
+            努力値計算
+        </button>
+        <div id="doryokutiResult"></div>
+
+    </div>
+
+
+    <!-- HP計算 -->
+    <div class="page" id="hpPage">
+
+        <h2>残りHP計算</h2>
+
+        <div class="font-row">
+            <label>相手のポケモン</label>
+
+            <div class="pokemon-search">
+                <input type="text" id="pokemonName2">
+                <div id="pokemonSuggestions2"></div>
+            </div>
+        </div>
+
+        <div class="font-row">
+            <label>相手のHP努力値</label>
+            <input type="text" id="hdoryokuti" placeholder="0~32">
+        </div>
+
+        <div class="font-row">
+            <label>相手のHP割合</label>
+            <div class="percent-input">
+                <input type="text" id="hpwariai" placeholder="0~100">
+                <span>%</span>
+            </div>
+        </div>
+
+        <button class="calculate-button" id="hpyosouCalculate">
+            相手のHP計算
+        </button>
+        <div id="hpyosouResult"></div>
+
+    </div>
+
+
+    <!-- 回復量計算 -->
+    <div class="page" id="kaihukuryouPage">
+
+        <h2>ちからをすいとる回復量計算</h2>
+
+        <div class="font-row">
+            <label>相手のポケモン</label>
+
+            <div class="pokemon-search">
+                <input type="text" id="pokemonName3">
+                <div id="pokemonSuggestions3"></div>
+            </div>
+        </div>
+
+        <div class="font-row">
+            <label>相手のA努力値</label>
+            <input type="text" id="adoryokuti" placeholder="0~32">
+        </div>
+
+        <div class="font-row">
+            <label>相手のA補正</label>
+            <select id="ahosei">
+                <option value="1.0">1.0</option>
+                <option value="1.1">1.1</option>
+                <option value="0.9">0.9</option>
+            </select>
+        </div>
+
+        <div class="font-row">
+            <label>相手のAランク</label>
+            <select id="aranku">
+                <option value="1.0">0</option>
+                <option value="2/3">-1</option>
+                <option value="1/2">-2</option>
+                <option value="2/5">-3</option>
+                <option value="1/3">-4</option>
+                <option value="2/7">-5</option>
+                <option value="1/4">-6</option>
+                <option value="1.5">1</option>
+                <option value="2.0">2</option>
+                <option value="2.5">3</option>
+                <option value="3.0">4</option>
+                <option value="3.5">5</option>
+                <option value="4.0">6</option>
+            </select>
+        </div>
+
+        <button class="calculate-button" id="kaihukuryouCalculate">
+            回復量計算
+        </button>
+        <div id="kaihukuryouResult"></div>
+
+    </div>
+
+    <script>
+        const pokemonNames = {{ pokemon_names | tojson}};
+    </script>
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
