@@ -6,6 +6,23 @@ body {
     text-align: center;
 }
 
+/*使用方法*/
+.about-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    padding: 6px 12px;
+
+    color: black;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    text-decoration: none;
+    font-size: 14px;
+}
+
 /*タイトル*/
 h1 {
     margin: 0;
@@ -143,6 +160,55 @@ select {
     background-color: #e0e0e0;
 }
 
+/*使用方法ページ*/
+.about-page {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.about-page h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-page h2 {
+    margin-top: 30px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.about-page h3 {
+    margin-top: 20px;
+}
+
+.about-page p {
+    line-height: 1.8;
+}
+
+.about-page li {
+    margin-bottom: 8px;
+}
+
+.back-button {
+    display: block;
+    width: fit-content;
+    margin: 35px auto 0;
+    padding: 10px 20px;
+    color: black;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: #d0d0d0;
+}
+
 /*スマホ用*/
 @media (max-width: 600px) {
 
@@ -172,6 +238,11 @@ select {
 
     .font-row input {
         width: 200px;
+    }
+
+    .about-page {
+    margin: 20px 10px;
+    padding: 20px 15px;
     }
 
 }
