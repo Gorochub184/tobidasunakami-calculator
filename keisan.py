@@ -79,7 +79,7 @@ def hpyosou(hshuzokuti2, hdoryokuti2, hpwariai):
     for hontouhp in range(hm, ha + 1):
 
         #本当の%表示か確認
-        hw = hontouhp * 100 // hzissuuti
+        hw = max(1, hontouhp * 100 // hzissuuti)
 
         if hw != hpwariai:
             continue
