@@ -12,33 +12,36 @@ def doryokutiyosou(hshuzokuti, hpwariaimae, hpwariaiato, nokorihp):
 
     for hdoryokuti in range(33):
 
-        hzissuuti = hshuzokuti + 75 + hdoryokuti  # hp実数値
+        hzissuuti = hshuzokuti + 75 + hdoryokuti  #hp実数値
 
-        # %表示になりうるHP範囲
+        #%表示になりうるHP範囲
         hm = hzissuuti * hpwariaimae // 100
         ha = hzissuuti * (hpwariaimae + 1) // 100
         ha = min(ha, hzissuuti)
 
         for hontouhp in range(hm, ha + 1):
 
-            # 本当の%表示か確認
+            #本当の%表示か確認
             hw = hontouhp * 100 // hzissuuti
 
             if hw != hpwariaimae:
                 continue
 
-            # 飛び出す中身ダメージ
+            #とびだすなかみで与えた後のhp量
             damezi = hontouhp - nokorihp
 
             if damezi < 0:
                 continue
 
-            # ダメージ後表示
-            dameziwariai = damezi * 100 // hzissuuti
+            #ダメージ後表示
+            if damezi == 0:
+                dameziwariai = 0
+            else:
+                dameziwariai = max(1, damezi * 100 // hzissuuti)
 
             if dameziwariai == hpwariaiato:
 
-                # まだ保存されていなければ追加
+                #まだ保存されていなければ追加
                 if hdoryokuti not in candidates:
                     candidates.append(hdoryokuti)
 
@@ -58,21 +61,30 @@ def hpyosou(hshuzokuti2, hdoryokuti2, hpwariai):
 
     #h実数値計算
     hzissuuti = int(hshuzokuti2 + 75 + hdoryokuti2)
+    
+    #0%表示の場合
+    if hpwariai == 0:
+        candidates.append(0)
+        return candidates
 
-    # %表示になりうるHP範囲
-    hm = hzissuuti * hpwariai // 100
+    #%表示になりうるHP範囲
+    if hpwariai == 1:
+        hm = 1
+    else:
+        hm = hzissuuti * hpwariai // 100
+        
     ha = hzissuuti * (hpwariai + 1) // 100
     ha = min(ha, hzissuuti)
 
     for hontouhp in range(hm, ha + 1):
 
-        # 本当の%表示か確認
+        #本当の%表示か確認
         hw = hontouhp * 100 // hzissuuti
 
         if hw != hpwariai:
             continue
 
-        # まだ保存されていなければ追加
+        #まだ保存されていなければ追加
         if hontouhp not in candidates:
             candidates.append(hontouhp)
             
