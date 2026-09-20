@@ -2,7 +2,7 @@
 ポケモンの特性「とびだすなかみ」に関する計算をするWebツールです。
 
 ## 公開URL
-https://tobidasunakami-calculator-1.onrender.com/
+https://gorochub184.pythonanywhere.com/
 
 ## 概要
 特性「とびだすなかみ」のポケモン、特にメガウツボットを使用している際、特性の効果で相手のポケモンの体力を削ることがよくあると思います。
