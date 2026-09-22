@@ -11,7 +11,7 @@ pokemon_dict = {
   "ゼニガメ": "squirtle",
   "カメール": "wartortle",
   "カメックス": "blastoise",
-  "メガカメックス": "blastoise-maga",
+  "メガカメックス": "blastoise-mega",
   "キャタピー": "caterpie",
   "トランセル": "metapod",
   "バタフリー": "butterfree",
